@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, Observable, of, Subscription } from 'rxjs';
-import { CommentService } from 'src/app/data-access/comment.service';
+import { Comment, CommentService } from 'src/app/data-access/comment.service';
 import { LoginService } from 'src/app/data-access/login.service';
 import { Post, PostService } from 'src/app/data-access/post.service';
 
@@ -23,6 +23,14 @@ export class PostListComponent implements OnDestroy {
       return of([]);
     })
   );
+
+  readonly comment$: Observable<Comment[]> = this.commentService.getComment().pipe(
+    catchError((response) => {
+      console.error(response);
+      alert('Something went wrong!');
+      return of([]);
+    })
+  )
 
   commentForm = this.fb.group({
     postId: this.fb.control<number | null>(null, Validators.required),
@@ -56,6 +64,7 @@ export class PostListComponent implements OnDestroy {
   view(post: Post): void {
     this.isShowPostDatail = true;
     this.postDetail = post;
+
   }
 
   addComment(): void {
