@@ -1,0 +1,44 @@
+<header>
+  <h2>Post List</h2>
+  <button type="button" (click)="addPost()">Add Post</button>
+</header>
+
+<div class="post-area">
+  <section class="post-list" *ngIf="post$ | async as posts">
+    <ul *ngIf="posts.length; else noPosts">
+      <li *ngFor="let post of posts">
+        <h4>{{ post.title }}</h4>
+        <time [dateTime]="post.createAt">
+          {{ post.createAt | date }}
+        </time>
+        <button type="button" (click)="view(post)">View</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="post-detail" *ngIf="isShowPostDatail">
+    <h4>
+      {{ postDetail?.title }}
+      <button type="button" (click)="isShowPostDatail = false">X</button>
+    </h4>
+    <p>{{ postDetail?.content }}</p>
+    <time [dateTime]="postDetail?.createAt"
+      >{{ postDetail?.createAt | date }}
+    </time>
+
+    <ul class="comment-list">
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <div class="input-comment">
+      <label>
+        <input type="text" >
+        <button type="button" (click)="addComment()">Add</button>
+      </label>
+    </div>
+
+  </section>
+</div>
+<ng-template #noPosts>
+  <p>No Post to display.</p>
+</ng-template>

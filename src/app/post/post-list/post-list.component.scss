@@ -1,0 +1,12 @@
+.post-area {
+  display: flex;
+  column-gap: 20%;
+}
+
+.post-list {
+  justify-content: start;
+}
+
+.post-detail {
+  justify-content: end;
+}
