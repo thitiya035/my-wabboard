@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": "pin",
+      "name": "thitiy"
+    },
+    {
+      "id": "john",
+      "name": "H.John"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Is pin",
+      "content": "hahaha",
+      "userId": "pin",
+      "createAt": "2022-09-20T15:25:57.297Z",
+      "id": 1
+    },
+    {
+      "title": "Test 2 ",
+      "content": "haha 555+",
+      "userId": "pin",
+      "createAt": "2022-09-21T03:39:30.336Z",
+      "id": 2
+    },
+    {
+      "title": "Tester Test",
+      "content": "Oh! no",
+      "userId": "pin",
+      "createAt": "2022-09-21T08:05:43.404Z",
+      "id": 3
+    },
+    {
+      "title": "11",
+      "content": "11",
+      "userId": "pin",
+      "createAt": "2022-09-21T10:26:05.146Z",
+      "id": 4
+    }
+  ],
+  "comments": []
+}

@@ -1,0 +1,10 @@
+<h1>Login</h1>
+
+<label>
+  Username :
+  <input type="text" [formControl]="id" />
+  <span class="errors" *ngIf="id.touched && id.errors">
+    Username is required.
+  </span>
+  <button type="button" (click)="login()" (keyup.enter)="login()">Login</button>
+</label>
