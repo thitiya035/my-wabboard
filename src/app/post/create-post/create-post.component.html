@@ -1,0 +1,20 @@
+<form [formGroup]="createPostForm">
+  <label
+    >Title :
+    <input type="text" formControlName="title" />
+    <span class="errors" *ngIf="title?.touched && title?.errors">
+      Title is required.
+    </span>
+  </label>
+  <label>
+    Content:
+    <textarea type="text" formControlName="content"></textarea>
+    <span class="errors" *ngIf="content?.touched && content?.errors">
+      Content is required.
+    </span>
+  </label>
+  <br />
+  <button type="button" (click)="addPost()" (keyup.enter)="addPost()">
+    Add Post
+  </button>
+</form>
